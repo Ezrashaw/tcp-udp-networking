@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
+using UnityEditor;
 using UnityEngine;
 
 public class Server
@@ -24,6 +25,7 @@ public class Server
         MaxPlayers = _maxPlayers;
         Port = _port;
 
+        Console.Clear();
         Debug.Log("Starting server...");
         InitializeServerData();
 

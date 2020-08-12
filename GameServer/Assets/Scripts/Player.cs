@@ -105,15 +105,12 @@ public class Player : MonoBehaviour
             return;
         }
 
+        Debug.Log($"Player: {id} shot");
         if (Physics.Raycast(shootOrigin.position, _viewDirection, out RaycastHit _hit, 25f))
         {
             if (_hit.collider.CompareTag("Player"))
             {
                 _hit.collider.GetComponent<Player>().TakeDamage(50f);
-            }
-            else if (_hit.collider.CompareTag("Enemy"))
-            {
-                _hit.collider.GetComponent<Enemy>().TakeDamage(50f);
             }
         }
     }
@@ -138,6 +135,8 @@ public class Player : MonoBehaviour
         {
             return;
         }
+
+        Debug.Log($"Player {id} took {_damage} damage");
 
         health -= _damage;
         if (health <= 0f)
